@@ -1,0 +1,10 @@
+.superpowers/
+.gradle/
+build/
+local.properties
+*.p12
+*.jks
+*.pem
+.idea/
+*.iml
+__pycache__/

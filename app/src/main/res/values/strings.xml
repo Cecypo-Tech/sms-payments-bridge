@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="disclosure_head">SMS Payments Bridge reads your SMS.</string>
+    <string name="disclosure_body">It reads text messages from the bank and M-Pesa senders your company\'s ERPNext lists, and sends them to your company\'s ERPNext server at %1$s to record payments. Messages from any other sender are never sent, unless you choose them yourself in Send samples. You can stop it at any time by uninstalling the app.</string>
+    <string name="sms_blocked_help">Tap ⋮ → Allow restricted settings, then come back.</string>
+</resources>

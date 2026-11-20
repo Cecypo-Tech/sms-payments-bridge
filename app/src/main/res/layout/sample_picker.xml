@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:padding="16dp">
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="Tick a few bank or M-Pesa messages to send to ERPNext as examples." />
+    <EditText android:id="@+id/senderFilter" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" android:hint="Filter by sender" android:inputType="text" android:maxLines="1" />
+    <TextView android:id="@+id/pickEmpty" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" android:text="No SMS found" android:visibility="gone" />
+    <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"
+        android:layout_marginTop="8dp">
+        <LinearLayout android:id="@+id/pickList" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+    <Button android:id="@+id/sendSamples" style="@style/Widget.App.Button.Primary"
+        android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" />
+</LinearLayout>

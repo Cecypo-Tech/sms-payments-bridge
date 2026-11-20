@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="16dp">
+        <TextView
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Connect to ERPNext" android:textSize="22sp" android:textStyle="bold" />
+        <TextView
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" android:labelFor="@+id/url" android:text="ERPNext address" />
+        <EditText
+            android:id="@+id/url" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" android:hint="ERPNext URL (https://…)" android:inputType="textUri" android:autofillHints="" />
+        <TextView
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" android:labelFor="@+id/apiKey" android:text="API key" />
+        <EditText
+            android:id="@+id/apiKey" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" android:hint="API key" android:inputType="textNoSuggestions" android:autofillHints="" />
+        <TextView
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" android:labelFor="@+id/apiSecret" android:text="API secret" />
+        <EditText
+            android:id="@+id/apiSecret" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" android:hint="API secret" android:inputType="textPassword" android:autofillHints="" />
+        <TextView
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" android:textColor="@color/gray"
+            android:text="Your ERPNext administrator gives you the key and secret." />
+        <TextView
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" android:labelFor="@+id/deviceName" android:text="Name of this phone" />
+        <EditText
+            android:id="@+id/deviceName" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" android:hint="Device name" android:inputType="text" android:autofillHints="" />
+        <TextView
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" android:textColor="@color/gray"
+            android:text="Shown in ERPNext so you know which phone sent a message." />
+        <Button
+            android:id="@+id/test" style="@style/Widget.App.Button.Primary"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="24dp" android:text="Connect" />
+        <TextView
+            android:id="@+id/setupMsg" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" />
+    </LinearLayout>
+</ScrollView>

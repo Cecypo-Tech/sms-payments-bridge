@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/refresh" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="16dp">
+            <TextView android:id="@+id/status" android:layout_width="match_parent" android:layout_height="wrap_content" />
+            <TextView android:id="@+id/errorLine" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:visibility="gone" />
+            <TextView android:id="@+id/unmatched" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="16dp" android:textSize="48sp" android:textStyle="bold" android:text="–" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="messages ERPNext could not read" android:textColor="@color/gray" />
+            <TextView android:id="@+id/lastPosted" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" />
+            <tech.cecypo.smsbridge.BarChartView
+                android:id="@+id/chart" android:layout_width="match_parent" android:layout_height="160dp"
+                android:layout_marginTop="16dp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" android:textColor="@color/gray"
+                android:text="Last 14 days: white matched, gray unmatched, dark other" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="16dp" android:text="Recent messages" android:textStyle="bold" />
+            <LinearLayout android:id="@+id/events" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </LinearLayout>
+    </ScrollView>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
