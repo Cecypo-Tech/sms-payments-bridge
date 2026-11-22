@@ -7,6 +7,7 @@ app_license = "gpl-3.0"
 
 required_apps = ["erpnext"]
 
+before_install = "sms_payments.sms_payments.release_module_from_bank_app"
 after_install = "sms_payments.sms_payments.ensure_role"
 after_migrate = ["sms_payments.sms_payments.ensure_role"]
 
