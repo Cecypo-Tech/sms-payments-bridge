@@ -2,7 +2,7 @@ import hashlib
 from datetime import UTC, datetime, timezone
 
 import frappe
-from frappe.utils import add_days, convert_utc_to_system_timezone, get_datetime, now_datetime, today
+from frappe.utils import add_days, cint, convert_utc_to_system_timezone, get_datetime, now_datetime, today
 
 from sms_payments.sms_payments.pipeline import enqueue_log
 
@@ -26,6 +26,15 @@ def _watched_senders():
 	lines = list(frappe.db.get_all("SMS Rule", {"enabled": 1}, pluck="senders"))
 	lines.append(frappe.db.get_single_value(SETTINGS, "sms_extra_senders"))
 	return sorted({s.strip().upper() for text in lines for s in (text or "").splitlines() if s.strip()})
+
+
+def _backfill_days():
+	"""Singles don't store JSON defaults, so a never-saved value falls back to the doctype's default."""
+	row = frappe.db.sql("select value from tabSingles where doctype=%s and field=%s", (SETTINGS, "sms_backfill_days"))
+	stored = row[0][0] if row else None
+	if stored is None:
+		stored = frappe.get_meta(SETTINGS).get_field("sms_backfill_days").default
+	return cint(stored)
 
 
 def _device(device_id):
@@ -58,7 +67,7 @@ def get_config(device_id, device_name=None, app_version=None):
 		"enabled": enabled,
 		"device": device_id,
 		"watched_senders": _watched_senders() if enabled else [],
-		"backfill_days": frappe.db.get_single_value(SETTINGS, "sms_backfill_days") or 0,
+		"backfill_days": _backfill_days(),
 	}
 
 
