@@ -46,10 +46,10 @@ The repo also contains the Android sources; bench ignores them.
 
 ## Install the phone app
 
-1. Open the repo's **Actions** tab, then the latest green **build** run on
-   `main`. Download the `sms-payments-bridge-<commit>` artifact and unzip it to
-   get `app-release.apk`. (Or, with the GitHub CLI:
-   `gh run download -R Cecypo-Tech/sms-payments-bridge`.)
+1. Download **[sms-payments-bridge.apk](https://github.com/Cecypo-Tech/sms-payments-bridge/releases/latest/download/sms-payments-bridge.apk)**
+   from the [latest release](https://github.com/Cecypo-Tech/sms-payments-bridge/releases/latest).
+   No GitHub account needed. (Builds of unreleased commits are under the
+   **Actions** tab, for signed-in users.)
 2. Copy the APK to the phone and open it. Android asks to allow installs from
    that source (Files, Chrome, WhatsApp...). Allow it, then install.
 3. Later builds are signed with the same key, so they install over the old app

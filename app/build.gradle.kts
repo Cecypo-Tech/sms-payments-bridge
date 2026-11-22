@@ -12,7 +12,7 @@ android {
         minSdk = 35  // Android 15 and later only
         targetSdk = 36
         versionCode = 1
-        versionName = "1.0"
+        versionName = "1.0.0"
     }
 
     val ksPath = System.getenv("SIGNING_KEYSTORE_PATH")
