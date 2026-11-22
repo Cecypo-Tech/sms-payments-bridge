@@ -1,0 +1,55 @@
+{
+ "actions": [],
+ "creation": "2026-11-22 12:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "sms_enabled",
+  "sms_extra_senders",
+  "sms_backfill_days"
+ ],
+ "fields": [
+  {
+   "default": "0",
+   "fieldname": "sms_enabled",
+   "fieldtype": "Check",
+   "label": "Enable SMS Payments"
+  },
+  {
+   "description": "One sender per line, in addition to the senders of enabled SMS Rules.",
+   "fieldname": "sms_extra_senders",
+   "fieldtype": "Small Text",
+   "label": "Extra Watched Senders"
+  },
+  {
+   "default": "3",
+   "fieldname": "sms_backfill_days",
+   "fieldtype": "Int",
+   "label": "Backfill Days"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-11-22 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "SMS Payments",
+ "name": "SMS Payments Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

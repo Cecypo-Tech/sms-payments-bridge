@@ -1,0 +1,159 @@
+{
+	"actions": [],
+	"allow_rename": 0,
+	"autoname": "SMSLOG-.YYYY.-.######",
+	"creation": "2026-11-10 00:00:00.000000",
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"field_order": [
+		"sender",
+		"received_at",
+		"status",
+		"body",
+		"section_result",
+		"sms_rule",
+		"register_entry",
+		"payment_entry",
+		"error",
+		"section_technical",
+		"device",
+		"phone_sms_id",
+		"sim_slot"
+	],
+	"fields": [
+		{
+			"fieldname": "sender",
+			"fieldtype": "Data",
+			"label": "Sender",
+			"in_list_view": 1,
+			"read_only": 1
+		},
+		{
+			"fieldname": "received_at",
+			"fieldtype": "Datetime",
+			"label": "Received At",
+			"in_list_view": 1,
+			"read_only": 1
+		},
+		{
+			"fieldname": "status",
+			"fieldtype": "Select",
+			"label": "Status",
+			"options": "Pending\nMatched\nUnmatched\nIgnored\nDuplicate\nError",
+			"default": "Pending",
+			"in_list_view": 1,
+			"in_standard_filter": 1,
+			"read_only": 1
+		},
+		{
+			"fieldname": "body",
+			"fieldtype": "Long Text",
+			"label": "Message",
+			"in_list_view": 1,
+			"read_only": 1
+		},
+		{
+			"fieldname": "section_result",
+			"fieldtype": "Section Break",
+			"label": "Result"
+		},
+		{
+			"fieldname": "sms_rule",
+			"fieldtype": "Link",
+			"label": "SMS Rule",
+			"options": "SMS Rule",
+			"read_only": 1
+		},
+		{
+			"fieldname": "register_entry",
+			"fieldtype": "Link",
+			"label": "Register Entry",
+			"options": "SMS Payment Register",
+			"in_list_view": 1,
+			"read_only": 1
+		},
+		{
+			"fieldname": "payment_entry",
+			"fieldtype": "Link",
+			"label": "Payment Entry",
+			"options": "Payment Entry",
+			"read_only": 1
+		},
+		{
+			"fieldname": "error",
+			"fieldtype": "Small Text",
+			"label": "Error",
+			"read_only": 1
+		},
+		{
+			"fieldname": "section_technical",
+			"fieldtype": "Section Break",
+			"label": "Technical",
+			"collapsible": 1
+		},
+		{
+			"fieldname": "device",
+			"fieldtype": "Link",
+			"label": "Device",
+			"options": "SMS Device",
+			"read_only": 1
+		},
+		{
+			"fieldname": "phone_sms_id",
+			"fieldtype": "Data",
+			"label": "Phone SMS ID",
+			"read_only": 1
+		},
+		{
+			"fieldname": "sim_slot",
+			"fieldtype": "Int",
+			"label": "SIM Slot",
+			"read_only": 1
+		},
+		{
+			"default": "0",
+			"description": "Sent by hand from the phone's Send samples screen. Samples are never posted automatically.",
+			"fieldname": "is_sample",
+			"fieldtype": "Check",
+			"label": "Sample",
+			"read_only": 1
+		}
+	],
+	"index_web_pages_for_search": 0,
+	"links": [],
+	"modified": "2026-11-15 12:00:00.000000",
+	"modified_by": "Administrator",
+	"module": "SMS Payments",
+	"name": "SMS Log",
+	"owner": "Administrator",
+	"permissions": [
+		{
+			"create": 1,
+			"delete": 1,
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "System Manager",
+			"share": 1,
+			"write": 1
+		},
+		{
+			"create": 1,
+			"delete": 1,
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "Accounts Manager",
+			"share": 1,
+			"write": 1
+		}
+	],
+	"row_format": "Dynamic",
+	"sort_field": "received_at",
+	"sort_order": "DESC",
+	"states": []
+}

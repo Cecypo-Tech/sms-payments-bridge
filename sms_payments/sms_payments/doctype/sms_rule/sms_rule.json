@@ -1,0 +1,206 @@
+{
+	"actions": [],
+	"allow_rename": 0,
+	"autoname": "field:rule_name",
+	"creation": "2026-11-10 00:00:00.000000",
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"field_order": [
+		"rule_name",
+		"enabled",
+		"priority",
+		"senders",
+		"action",
+		"section_match",
+		"pattern",
+		"section_advanced",
+		"condition_eval",
+		"date_format",
+		"section_entry",
+		"payment_type",
+		"company",
+		"mode_of_payment",
+		"auto_post",
+		"column_break_accounts",
+		"paid_to",
+		"paid_from",
+		"charges_account",
+		"charges_cost_center"
+	],
+	"fields": [
+		{
+			"fieldname": "rule_name",
+			"fieldtype": "Data",
+			"label": "Rule Name",
+			"reqd": 1,
+			"unique": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "enabled",
+			"fieldtype": "Check",
+			"label": "Enabled",
+			"default": "1",
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "priority",
+			"fieldtype": "Int",
+			"label": "Priority",
+			"default": "0",
+			"in_list_view": 1,
+			"description": "Higher wins"
+		},
+		{
+			"fieldname": "senders",
+			"fieldtype": "Small Text",
+			"label": "Senders",
+			"reqd": 1,
+			"description": "One sender ID per line, exact match, case-insensitive"
+		},
+		{
+			"fieldname": "action",
+			"fieldtype": "Select",
+			"label": "Action",
+			"options": "Create Entry\nIgnore",
+			"default": "Create Entry",
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "section_match",
+			"fieldtype": "Section Break",
+			"label": "Match"
+		},
+		{
+			"fieldname": "pattern",
+			"fieldtype": "Code",
+			"label": "Pattern",
+			"options": "none",
+			"reqd": 1,
+			"description": "Python regex with named groups: amount, reference, party_name, party_phone, date, time, charges"
+		},
+		{
+			"fieldname": "section_advanced",
+			"fieldtype": "Section Break",
+			"label": "Advanced",
+			"collapsible": 1
+		},
+		{
+			"fieldname": "condition_eval",
+			"fieldtype": "Code",
+			"label": "Condition",
+			"options": "PythonExpression",
+			"description": "Optional. Context: sms (sender, body, received_at) and m (extracted groups)"
+		},
+		{
+			"fieldname": "date_format",
+			"fieldtype": "Data",
+			"label": "Date Format",
+			"default": "%d-%m-%Y",
+			"description": "How the date is written in the SMS, e.g. %d/%m/%y for 10/11/26."
+		},
+		{
+			"fieldname": "section_entry",
+			"fieldtype": "Section Break",
+			"label": "Entry",
+			"depends_on": "eval:doc.action=='Create Entry'"
+		},
+		{
+			"fieldname": "payment_type",
+			"fieldtype": "Select",
+			"label": "Payment Type",
+			"options": "\nReceive\nPay\nInternal Transfer",
+			"mandatory_depends_on": "eval:doc.action=='Create Entry'",
+			"description": "An internal transfer usually sends two SMS. Post one side only; give the other side's rule the action Ignore.",
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "company",
+			"fieldtype": "Link",
+			"label": "Company",
+			"options": "Company",
+			"mandatory_depends_on": "eval:doc.action=='Create Entry'"
+		},
+		{
+			"fieldname": "mode_of_payment",
+			"fieldtype": "Link",
+			"label": "Mode of Payment",
+			"options": "Mode of Payment"
+		},
+		{
+			"fieldname": "auto_post",
+			"fieldtype": "Check",
+			"label": "Post Automatically",
+			"description": "Submit the entry and create the Payment Entry when the party is known. Internal transfers need no party."
+		},
+		{
+			"fieldname": "column_break_accounts",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "paid_to",
+			"fieldtype": "Link",
+			"label": "Paid To",
+			"options": "Account",
+			"depends_on": "eval:doc.action=='Create Entry' && ['Receive','Internal Transfer'].includes(doc.payment_type)"
+		},
+		{
+			"fieldname": "paid_from",
+			"fieldtype": "Link",
+			"label": "Paid From",
+			"options": "Account",
+			"depends_on": "eval:doc.action=='Create Entry' && ['Pay','Internal Transfer'].includes(doc.payment_type)"
+		},
+		{
+			"fieldname": "charges_account",
+			"fieldtype": "Link",
+			"label": "Charges Account",
+			"options": "Account",
+			"depends_on": "eval:doc.action=='Create Entry'"
+		},
+		{
+			"fieldname": "charges_cost_center",
+			"fieldtype": "Link",
+			"label": "Charges Cost Center",
+			"options": "Cost Center",
+			"depends_on": "eval:doc.action=='Create Entry'"
+		}
+	],
+	"is_submittable": 0,
+	"links": [],
+	"modified": "2026-11-15 12:00:00.000000",
+	"modified_by": "Administrator",
+	"module": "SMS Payments",
+	"name": "SMS Rule",
+	"owner": "Administrator",
+	"permissions": [
+		{
+			"create": 1,
+			"delete": 1,
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "System Manager",
+			"share": 1,
+			"write": 1
+		},
+		{
+			"create": 1,
+			"delete": 1,
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "Accounts Manager",
+			"share": 1,
+			"write": 1
+		}
+	],
+	"row_format": "Dynamic",
+	"sort_field": "modified",
+	"sort_order": "DESC",
+	"states": []
+}

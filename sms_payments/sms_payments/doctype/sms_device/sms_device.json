@@ -1,0 +1,97 @@
+{
+	"actions": [],
+	"allow_rename": 0,
+	"autoname": "field:device_id",
+	"creation": "2026-11-10 00:00:00.000000",
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"field_order": [
+		"device_id",
+		"device_name",
+		"enabled",
+		"app_version",
+		"last_seen",
+		"last_error"
+	],
+	"fields": [
+		{
+			"fieldname": "device_id",
+			"fieldtype": "Data",
+			"label": "Device ID",
+			"reqd": 1,
+			"unique": 1,
+			"read_only": 1
+		},
+		{
+			"fieldname": "device_name",
+			"fieldtype": "Data",
+			"label": "Device Name",
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "enabled",
+			"fieldtype": "Check",
+			"label": "Enabled",
+			"default": "1",
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "app_version",
+			"fieldtype": "Data",
+			"label": "App Version",
+			"read_only": 1
+		},
+		{
+			"fieldname": "last_seen",
+			"fieldtype": "Datetime",
+			"label": "Last Seen",
+			"in_list_view": 1,
+			"read_only": 1
+		},
+		{
+			"fieldname": "last_error",
+			"fieldtype": "Small Text",
+			"label": "Last Error",
+			"read_only": 1
+		}
+	],
+	"index_web_pages_for_search": 0,
+	"links": [],
+	"modified": "2026-11-15 12:30:00.000000",
+	"modified_by": "Administrator",
+	"module": "SMS Payments",
+	"name": "SMS Device",
+	"owner": "Administrator",
+	"permissions": [
+		{
+			"create": 1,
+			"delete": 1,
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "System Manager",
+			"share": 1,
+			"write": 1
+		},
+		{
+			"create": 1,
+			"delete": 1,
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "Accounts Manager",
+			"share": 1,
+			"write": 1
+		}
+	],
+	"row_format": "Dynamic",
+	"sort_field": "modified",
+	"sort_order": "DESC",
+	"states": [],
+	"title_field": "device_name",
+	"show_title_field_in_link": 1
+}

@@ -1,0 +1,282 @@
+{
+	"actions": [],
+	"allow_rename": 0,
+	"autoname": "SMSPAY-.YYYY.-.#####",
+	"creation": "2026-11-10 00:00:00.000000",
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"field_order": [
+		"raw_message",
+		"sender",
+		"section_extracted",
+		"reference",
+		"amount",
+		"charges",
+		"posting_date",
+		"posting_time",
+		"column_break_extracted",
+		"party_name_in_sms",
+		"party_phone",
+		"section_posting",
+		"payment_type",
+		"company",
+		"mode_of_payment",
+		"paid_from",
+		"paid_to",
+		"charges_account",
+		"charges_cost_center",
+		"column_break_party",
+		"party_type",
+		"party",
+		"payment_entry",
+		"amended_from",
+		"section_origin",
+		"sms_log",
+		"sms_rule",
+		"column_break_source",
+		"device",
+		"sms_party_rule"
+	],
+	"fields": [
+		{
+			"fieldname": "raw_message",
+			"fieldtype": "Long Text",
+			"label": "SMS Text",
+			"read_only": 1
+		},
+		{
+			"fieldname": "sender",
+			"fieldtype": "Data",
+			"label": "Sender",
+			"read_only": 1
+		},
+		{
+			"fieldname": "section_extracted",
+			"fieldtype": "Section Break",
+			"label": "Read from the SMS"
+		},
+		{
+			"fieldname": "reference",
+			"fieldtype": "Data",
+			"label": "Reference",
+			"search_index": 1,
+			"reqd": 1,
+			"in_list_view": 1,
+			"in_standard_filter": 1
+		},
+		{
+			"fieldname": "amount",
+			"fieldtype": "Currency",
+			"label": "Amount",
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "charges",
+			"fieldtype": "Currency",
+			"label": "Charges"
+		},
+		{
+			"fieldname": "posting_date",
+			"fieldtype": "Date",
+			"label": "Posting Date",
+			"in_list_view": 1,
+			"in_standard_filter": 1
+		},
+		{
+			"fieldname": "posting_time",
+			"fieldtype": "Time",
+			"label": "Posting Time"
+		},
+		{
+			"fieldname": "column_break_extracted",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "party_name_in_sms",
+			"fieldtype": "Data",
+			"label": "Party Name in SMS",
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "party_phone",
+			"fieldtype": "Data",
+			"label": "Party Phone"
+		},
+		{
+			"fieldname": "section_posting",
+			"fieldtype": "Section Break",
+			"label": "Payment"
+		},
+		{
+			"fieldname": "payment_type",
+			"fieldtype": "Select",
+			"label": "Payment Type",
+			"options": "\nReceive\nPay\nInternal Transfer",
+			"in_list_view": 1,
+			"in_standard_filter": 1
+		},
+		{
+			"fieldname": "company",
+			"fieldtype": "Link",
+			"label": "Company",
+			"options": "Company",
+			"in_standard_filter": 1
+		},
+		{
+			"fieldname": "mode_of_payment",
+			"fieldtype": "Link",
+			"label": "Mode of Payment",
+			"options": "Mode of Payment"
+		},
+		{
+			"fieldname": "paid_from",
+			"fieldtype": "Link",
+			"label": "Account Paid From",
+			"options": "Account",
+			"depends_on": "eval:['Pay','Internal Transfer'].includes(doc.payment_type)"
+		},
+		{
+			"fieldname": "paid_to",
+			"fieldtype": "Link",
+			"label": "Account Paid To",
+			"options": "Account",
+			"depends_on": "eval:['Receive','Internal Transfer'].includes(doc.payment_type)"
+		},
+		{
+			"fieldname": "charges_account",
+			"fieldtype": "Link",
+			"label": "Charges Account",
+			"options": "Account"
+		},
+		{
+			"fieldname": "charges_cost_center",
+			"fieldtype": "Link",
+			"label": "Charges Cost Center",
+			"options": "Cost Center"
+		},
+		{
+			"fieldname": "column_break_party",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "party_type",
+			"fieldtype": "Select",
+			"label": "Party Type",
+			"options": "\nCustomer\nSupplier"
+		},
+		{
+			"fieldname": "party",
+			"fieldtype": "Dynamic Link",
+			"label": "Party",
+			"options": "party_type",
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "payment_entry",
+			"fieldtype": "Link",
+			"label": "Payment Entry",
+			"options": "Payment Entry",
+			"read_only": 1,
+			"no_copy": 1
+		},
+		{
+			"fieldname": "amended_from",
+			"fieldtype": "Link",
+			"label": "Amended From",
+			"options": "SMS Payment Register",
+			"read_only": 1,
+			"no_copy": 1,
+			"print_hide": 1
+		},
+		{
+			"fieldname": "section_origin",
+			"fieldtype": "Section Break",
+			"label": "Source",
+			"collapsible": 1
+		},
+		{
+			"fieldname": "sms_log",
+			"fieldtype": "Link",
+			"label": "SMS Log",
+			"read_only": 1,
+			"no_copy": 1,
+			"options": "SMS Log"
+		},
+		{
+			"fieldname": "sms_rule",
+			"fieldtype": "Link",
+			"label": "SMS Rule",
+			"options": "SMS Rule",
+			"read_only": 1
+		},
+		{
+			"fieldname": "column_break_source",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "device",
+			"fieldtype": "Link",
+			"label": "Device",
+			"read_only": 1,
+			"options": "SMS Device"
+		},
+		{
+			"fieldname": "sms_party_rule",
+			"fieldtype": "Link",
+			"label": "SMS Party Rule",
+			"options": "SMS Party Rule",
+			"read_only": 1
+		}
+	],
+	"is_submittable": 1,
+	"links": [],
+	"modified": "2026-11-15 12:00:00.000000",
+	"modified_by": "Administrator",
+	"module": "SMS Payments",
+	"name": "SMS Payment Register",
+	"owner": "Administrator",
+	"permissions": [
+		{
+			"create": 1,
+			"delete": 1,
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "System Manager",
+			"share": 1,
+			"write": 1,
+			"submit": 1,
+			"cancel": 1,
+			"amend": 1
+		},
+		{
+			"create": 1,
+			"delete": 1,
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "Accounts Manager",
+			"share": 1,
+			"write": 1,
+			"submit": 1,
+			"cancel": 1,
+			"amend": 1
+		},
+		{
+			"create": 1,
+			"read": 1,
+			"write": 1,
+			"report": 1,
+			"role": "Accounts User"
+		}
+	],
+	"row_format": "Dynamic",
+	"sort_field": "modified",
+	"sort_order": "DESC",
+	"states": [],
+	"title_field": "reference"
+}

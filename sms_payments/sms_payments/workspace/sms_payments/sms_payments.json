@@ -1,0 +1,127 @@
+{
+ "app": "sms_payments",
+ "charts": [],
+ "content": "[{\"id\": \"hdr1\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h2\\\">SMS Payments</span>\", \"col\": 12}}, {\"id\": \"sc_sms_register\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"SMS Payment Register\", \"col\": 4}}, {\"id\": \"sc_sms_log\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"SMS Log\", \"col\": 4}}, {\"id\": \"sc_sms_settings\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"SMS Payments Settings\", \"col\": 4}}, {\"id\": \"spc1\", \"type\": \"spacer\", \"data\": {\"col\": 12}}, {\"id\": \"card_sms\", \"type\": \"card\", \"data\": {\"card_name\": \"SMS Payments\", \"col\": 4}}]",
+ "creation": "2026-11-22 12:00:00.000000",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "message",
+ "idx": 0,
+ "indicator_color": "blue",
+ "is_hidden": 0,
+ "label": "SMS Payments",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "SMS Payments",
+   "link_count": 6,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "SMS Payment Register",
+   "link_count": 0,
+   "link_to": "SMS Payment Register",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "SMS Log",
+   "link_count": 0,
+   "link_to": "SMS Log",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "SMS Rule",
+   "link_count": 0,
+   "link_to": "SMS Rule",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "SMS Party Rule",
+   "link_count": 0,
+   "link_to": "SMS Party Rule",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "SMS Device",
+   "link_count": 0,
+   "link_to": "SMS Device",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "SMS Payments Settings",
+   "link_count": 0,
+   "link_to": "SMS Payments Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-11-22 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "SMS Payments",
+ "name": "SMS Payments",
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 52.0,
+ "shortcuts": [
+  {
+   "color": "Orange",
+   "doc_view": "List",
+   "format": "{} To Post",
+   "label": "SMS Payment Register",
+   "link_to": "SMS Payment Register",
+   "stats_filter": "{\"docstatus\":0}",
+   "type": "DocType"
+  },
+  {
+   "color": "Red",
+   "doc_view": "List",
+   "format": "{} Unmatched",
+   "label": "SMS Log",
+   "link_to": "SMS Log",
+   "stats_filter": "{\"status\":\"Unmatched\"}",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "",
+   "label": "SMS Payments Settings",
+   "link_to": "SMS Payments Settings",
+   "stats_filter": "[]",
+   "type": "DocType"
+  }
+ ],
+ "title": "SMS Payments",
+ "type": "Workspace"
+}
