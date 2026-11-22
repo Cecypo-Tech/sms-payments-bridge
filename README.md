@@ -1,15 +1,20 @@
 # SMS Payments Bridge
 
-An Android app that forwards payment SMS (M-Pesa, bank alerts) from a phone to an
-ERPNext site, where they are recorded as payments.
+Records M-Pesa and bank payments in ERPNext from the payment SMS on a phone. This
+repo holds both halves, and each needs the other:
+
+- **Phone app** (`app/`): an Android app that forwards payment SMS (M-Pesa, bank
+  alerts) to your ERPNext site.
+- **ERPNext app** (`sms_payments/`): a Frappe app that receives them, matches each
+  SMS to a rule and a party, and turns it into a payment.
 
 It only forwards messages from the senders your ERPNext lists. Every other SMS
 stays on the phone.
 
 - Android 15 (API 35) or later. Package `tech.cecypo.smsbridge`.
 - Kotlin, a single activity, AndroidX only. No local database, no analytics.
-- The server side is the `sms_payments` module of the Cecypo bank integrations
-  ERPNext app. See [API](#api) below.
+- The server side is the `sms_payments` Frappe app in this repo (ERPNext v16). See
+  [API](#api) below. It doesn't need any bank integration app.
 
 ## Screenshots
 
@@ -29,7 +34,17 @@ A sync runs when an SMS arrives, every 15 minutes, after a reboot, and when you
 open the app. If the phone was off or offline, the next sync catches up. ERPNext
 ignores duplicates, so retries are safe.
 
-## Install
+## Install the ERPNext app
+
+```bash
+cd $PATH_TO_YOUR_BENCH
+bench get-app https://github.com/Cecypo-Tech/sms-payments-bridge --branch main
+bench --site <your-site> install-app sms_payments
+```
+
+The repo also contains the Android sources; bench ignores them.
+
+## Install the phone app
 
 1. Open the repo's **Actions** tab, then the latest green **build** run on
    `main`. Download the `sms-payments-bridge-<commit>` artifact and unzip it to
@@ -42,7 +57,7 @@ ignores duplicates, so retries are safe.
 
 ## Set up ERPNext first
 
-1. In **Bank Integration Settings**, tick **Enable SMS Payments**. The watched
+1. In **SMS Payments Settings**, tick **Enable SMS Payments**. The watched
    senders are the senders of the enabled **SMS Rules**, plus any listed in
    **Extra Watched Senders**.
 2. Create a user for the phone with only the **SMS Gateway** role. Don't give it
@@ -188,7 +203,7 @@ One Time Password \(OTP\)
 
 ## API
 
-All calls go to `/api/method/cecypo_bank_integrations.sms_payments.api.<name>`
+All calls go to `/api/method/sms_payments.sms_payments.api.<name>`
 with `Authorization: token <key>:<secret>`. The user needs the SMS Gateway role.
 
 | Method | Purpose |

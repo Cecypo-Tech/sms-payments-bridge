@@ -13,7 +13,7 @@ data class Stats(val daily: List<DayCount>, val unmatchedTotal: Int, val lastPos
 class ApiException(val httpCode: Int, message: String) : Exception(message)
 
 class Api(private val baseUrl: String, private val key: String, private val secret: String) {
-    private val prefix = "/api/method/cecypo_bank_integrations.sms_payments.api."
+    private val prefix = "/api/method/sms_payments.sms_payments.api."
 
     fun getConfig(deviceId: String, deviceName: String, appVersion: String): Config =
         parseConfig(call("get_config", "device_id=${enc(deviceId)}&device_name=${enc(deviceName)}&app_version=${enc(appVersion)}", null))
